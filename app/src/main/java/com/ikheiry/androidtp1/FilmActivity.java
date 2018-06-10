@@ -19,6 +19,7 @@ import com.ikheiry.androidtp1.webservice.InitList;
 import com.ikheiry.androidtp1.webservice.OutilHttpClient;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class FilmActivity extends AppCompatActivity {
 
@@ -46,7 +47,8 @@ public class FilmActivity extends AppCompatActivity {
         });
 
         // code ListView
-        fields = InitList.getListFields();
+        //fields = InitList.getListFields();
+        fields = new ArrayList<>();
         listView = findViewById(R.id.list_film);
         adapter = new FieldAdapter(this, fields);
         listView.setAdapter(adapter);
@@ -63,6 +65,7 @@ public class FilmActivity extends AppCompatActivity {
             }
         });
 
+
         // AsynchTask : appel du service opendata
         MonAsyncTask monAsyncTask = new MonAsyncTask();
         monAsyncTask.execute();
@@ -70,12 +73,13 @@ public class FilmActivity extends AppCompatActivity {
 
     public class MonAsyncTask extends AsyncTask {
 
-        String text;
+        List<Fields> resultat;
 
         @Override
         protected Object doInBackground(Object[] objects) {
             try {
-                text = OutilHttpClient.getHttp("https://opendata.paris.fr/api/records/1.0/search/?dataset=tournagesdefilmsparis2011&facet=realisateur&facet=organisme_demandeur&facet=type_de_tournage&facet=ardt");
+                //text = OutilHttpClient.getHttp("https://opendata.paris.fr/api/records/1.0/search/?dataset=tournagesdefilmsparis2011&facet=realisateur&facet=organisme_demandeur&facet=type_de_tournage&facet=ardt");
+                resultat = InitList.getFieldWS();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -86,7 +90,11 @@ public class FilmActivity extends AppCompatActivity {
         protected void onPostExecute(Object o) {
             super.onPostExecute(o);
 
-            Log.i("Resultat requete HTTP :", text);
+            //Log.i("Resultat requete HTTP :", text);
+            fields.clear();
+            fields.addAll(resultat);
+            adapter.updateData();
+
             //Mise a jour de TextView
             runOnUiThread(new Runnable() {
                 @Override

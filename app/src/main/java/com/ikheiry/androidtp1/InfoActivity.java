@@ -23,7 +23,7 @@ public class InfoActivity extends AppCompatActivity {
         titre = findViewById(R.id.filmTitre);
         realisateur = findViewById(R.id.filmRealisateur);
         field = (Fields) getIntent().getExtras().getSerializable("key");
-        img.setImageResource(field.getImageID());
+        //img.setImageResource(field.getImageID());
         titre.setText(field.getTitre());
         realisateur.setText(field.getRealisateur());
     }

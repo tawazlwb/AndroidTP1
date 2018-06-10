@@ -39,7 +39,7 @@ public class FieldAdapter extends ArrayAdapter<Fields> {
         realisateur.setText(film.getRealisateur());
 
         ImageView image = result.findViewById(R.id.fileImage);
-        image.setImageResource(film.getImageID());
+        //image.setImageResource(film.getImageID());
 
         return result;
     }
