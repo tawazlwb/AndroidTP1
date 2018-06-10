@@ -1,12 +1,15 @@
 package com.ikheiry.androidtp1;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.ikheiry.androidtp1.metier.Fields;
 
+// Google Maps API KEY :  AIzaSyDETD4rq_rsvLGB7ou8vuLA1EV3-Fq_iuU
 public class InfoActivity extends AppCompatActivity {
 
     ImageView img;
@@ -26,5 +29,11 @@ public class InfoActivity extends AppCompatActivity {
         //img.setImageResource(field.getImageID());
         titre.setText(field.getTitre());
         realisateur.setText(field.getRealisateur());
+    }
+
+    public void afficherMap(View view) {
+        Intent intent = new Intent(InfoActivity.this, MapsActivity.class);
+        intent.putExtra("key1", field);
+        startActivity(intent);
     }
 }

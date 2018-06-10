@@ -15,7 +15,7 @@ public class Fields implements Serializable{
     private String cadre;
     private String date_fin_evenement;
     private String realisateur;
-    private List<Float> geo_coordinates;
+    private List<Double> xy;
     private String lieu;
     private String titre;
     private String adresse_complete;
@@ -42,7 +42,6 @@ public class Fields implements Serializable{
         this.cadre = cadre;
         this.date_fin_evenement = date_fin_evenement;
         this.realisateur = realisateur;
-        this.geo_coordinates = new ArrayList<>();
         this.lieu = lieu;
         this.titre = titre;
         this.adresse_complete = adresse_complete;
@@ -55,7 +54,6 @@ public class Fields implements Serializable{
         this.cadre = cadre;
         this.date_fin_evenement = date_fin_evenement;
         this.realisateur = realisateur;
-        this.geo_coordinates = geo_coordinates;
         this.lieu = lieu;
         this.titre = titre;
         this.adresse_complete = adresse_complete;
@@ -109,12 +107,12 @@ public class Fields implements Serializable{
         this.realisateur = realisateur;
     }
 
-    public List<Float> getGeo_coordinates() {
-        return geo_coordinates;
+    public List<Double> getXy() {
+        return xy;
     }
 
-    public void setGeo_coordinates(List<Float> geo_coordinates) {
-        this.geo_coordinates = geo_coordinates;
+    public void setXy(List<Double> xy) {
+        this.xy = xy;
     }
 
     public String getLieu() {
