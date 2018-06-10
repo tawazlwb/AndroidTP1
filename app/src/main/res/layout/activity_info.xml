@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.ikheiry.androidtp1.InfoActivity"
+    android:paddingBottom="@dimen/activity_vertical_magin"
+    android:paddingTop="@dimen/activity_vertical_magin"
+    android:paddingLeft="@dimen/activity_horizontal_magin"
+    android:paddingRight="@dimen/activity_horizontal_magin">
+
+
+    <ImageView
+        android:id="@+id/filmImg"
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        android:layout_gravity="center_horizontal"
+        app:srcCompat="@drawable/harry" />
+
+    <TextView
+        android:id="@+id/filmTitre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="210dp"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="Titre"
+        android:textSize="16dp" />
+
+    <TextView
+        android:id="@+id/filmRealisateur"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="252dp"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="Réalisateur"
+        android:textSize="16dp" />
+
+</FrameLayout>
